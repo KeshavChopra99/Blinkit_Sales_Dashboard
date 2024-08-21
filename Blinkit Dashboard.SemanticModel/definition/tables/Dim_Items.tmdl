@@ -1,0 +1,44 @@
+table Dim_Items
+	lineageTag: 5c5534d5-a5c3-4168-8685-734be1efae1e
+
+	column 'Item Identifier'
+		dataType: string
+		lineageTag: 97c9d6a6-6cd3-4516-97a4-ab3c1e53e615
+		summarizeBy: none
+		sourceColumn: Item Identifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Item Fat Content'
+		dataType: string
+		lineageTag: 5cdae755-8730-43e2-ab85-3c5ff061fa6c
+		summarizeBy: none
+		sourceColumn: Item Fat Content
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Item Type'
+		dataType: string
+		lineageTag: 2b5b9b24-fb03-44ae-aefb-adab0306ed53
+		summarizeBy: none
+		sourceColumn: Item Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Items = m
+		mode: import
+		source =
+				let
+				    Source = #"Raw Data",
+				    #"Replaced Value" = Table.ReplaceValue(Source,"low fat","Low Fat",Replacer.ReplaceText,{"Item Fat Content"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value","reg","Regular",Replacer.ReplaceText,{"Item Fat Content"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value2","LF","Low Fat",Replacer.ReplaceText,{"Item Fat Content"}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Replaced Value1",{"Item Identifier", "Item Fat Content", "Item Type"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

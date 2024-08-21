@@ -1,0 +1,56 @@
+table Metrics
+	lineageTag: fc0e58ea-b53e-4724-abbe-a405b5e8ee88
+
+	column Metrics
+		dataType: string
+		lineageTag: 1b27e30b-d560-4ad9-a824-8f1fa2f27ecb
+		summarizeBy: none
+		isDataTypeInferred
+		sourceColumn: [Value1]
+		sortByColumn: 'Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Fields'
+		dataType: string
+		isHidden
+		lineageTag: 56c95d8d-615a-4d1c-85a5-3bb4a7bd0076
+		summarizeBy: none
+		isDataTypeInferred
+		sourceColumn: [Value2]
+		sortByColumn: 'Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Order'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 113129e3-24bb-4116-9eb2-b7928ceca6fd
+		summarizeBy: sum
+		isDataTypeInferred
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Metrics = calculated
+		mode: import
+		source =
+				{
+				    ("Total Sales", NAMEOF('_Measures'[Total Sales]), 0),
+				    ("Average Sales", NAMEOF('_Measures'[Average Sales]), 1),
+				    ("Total Transaction", NAMEOF('_Measures'[Total Transaction]), 2),
+				    ("Average Rating", NAMEOF('_Measures'[Average Rating]), 3)
+				}
+
+	annotation PBI_Id = b17976095d534775bc1f461c7261c8b1
+

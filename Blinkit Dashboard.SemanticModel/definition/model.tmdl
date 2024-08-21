@@ -1,0 +1,25 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_ProTooling = ["DevMode"]
+
+annotation PBIDesktopVersion = 2.131.1203.0 (24.07)
+
+annotation PBI_QueryOrder = ["Raw Data","Fact_Table","Dim_Items","Dim_Outlets","_Measures"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+ref table Fact_Table
+ref table DateTableTemplate_a66c2a98-aaea-4e2d-a7ee-366dac19d22d
+ref table Dim_Items
+ref table Dim_Outlets
+ref table _Measures
+ref table Metrics
+
+ref cultureInfo en-IN
+

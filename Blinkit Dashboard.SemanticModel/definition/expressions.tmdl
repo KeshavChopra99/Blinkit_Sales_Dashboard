@@ -1,0 +1,14 @@
+expression 'Raw Data' =
+		let
+		    Source = Excel.Workbook(File.Contents("C:\Users\dell5\OneDrive\Desktop\Projects\Power BI Projects\BlinkIt Project\Blinkit Data\BlinkIT Grocery Data.xlsx"), null, true),
+		    #"BlinkIT Grocery Data_Sheet" = Source{[Item="BlinkIT Grocery Data",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(#"BlinkIT Grocery Data_Sheet", [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Item Fat Content", type text}, {"Item Identifier", type text}, {"Item Type", type text}, {"Outlet Establishment Year", Int64.Type}, {"Outlet Identifier", type text}, {"Outlet Location Type", type text}, {"Outlet Size", type text}, {"Outlet Type", type text}, {"Item Visibility", type number}, {"Item Weight", type number}, {"Sales", type number}, {"Rating", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: c3fcb2a8-2f35-4db8-b517-3bd5f7f53041
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

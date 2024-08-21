@@ -1,0 +1,79 @@
+table Fact_Table
+	lineageTag: 0aeedc6f-120a-409a-a002-656a861c299a
+
+	column 'Item Identifier'
+		dataType: string
+		lineageTag: 0d7f91e1-4575-40b2-a283-1612d82bd428
+		summarizeBy: none
+		sourceColumn: Item Identifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outlet Identifier'
+		dataType: string
+		lineageTag: 1050fa8d-bb34-4935-9bd9-4dbae2c10f40
+		summarizeBy: none
+		sourceColumn: Outlet Identifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales
+		dataType: double
+		lineageTag: 8cfec27d-03af-4e90-9029-e3fd6d07439a
+		summarizeBy: sum
+		sourceColumn: Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Rating
+		dataType: int64
+		formatString: 0
+		lineageTag: e2c3cc27-7b67-455e-b139-cdf9ce04b10f
+		summarizeBy: sum
+		sourceColumn: Rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outlet Size'
+		dataType: string
+		lineageTag: aa5e8be2-1bf0-4ade-8531-eddc08969481
+		summarizeBy: none
+		sourceColumn: Outlet Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Item Visibility'
+		dataType: double
+		lineageTag: 3ca49f54-9111-4bcc-ae66-ecfdc503188a
+		summarizeBy: sum
+		sourceColumn: Item Visibility
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Item Weight'
+		dataType: double
+		lineageTag: b7162212-798a-4592-abc6-981dd464f7a1
+		summarizeBy: sum
+		sourceColumn: Item Weight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Fact_Table = m
+		mode: import
+		source =
+				let
+				    Source = #"Raw Data",
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"Item Fat Content", "Item Type", "Outlet Establishment Year", "Outlet Location Type", "Outlet Type"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,50 @@
+table Dim_Outlets
+	lineageTag: 07257c7a-9e7a-43ed-bb5c-3c3de3f342d9
+
+	column 'Outlet Identifier'
+		dataType: string
+		lineageTag: 9a0f8968-cbb8-4e30-8e35-5a3060e70903
+		summarizeBy: none
+		sourceColumn: Outlet Identifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outlet Establishment Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4fc1d1b0-dc01-4ae8-a55e-708b175f7ae7
+		summarizeBy: none
+		sourceColumn: Outlet Establishment Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outlet Location Type'
+		dataType: string
+		lineageTag: 36a17ad4-de0b-464d-b379-fe99a1ef2f87
+		summarizeBy: none
+		sourceColumn: Outlet Location Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Outlet Type'
+		dataType: string
+		lineageTag: 1c0b121a-2d8b-42e3-9efa-f716511b8943
+		summarizeBy: none
+		sourceColumn: Outlet Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Outlets = m
+		mode: import
+		source =
+				let
+				    Source = #"Raw Data",
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"Outlet Identifier","Outlet Establishment Year", "Outlet Location Type", "Outlet Type"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

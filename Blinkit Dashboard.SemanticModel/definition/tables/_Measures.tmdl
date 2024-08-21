@@ -1,0 +1,50 @@
+table _Measures
+	lineageTag: 7489b812-c8c2-4cbe-8de1-d9df32620f28
+
+	measure 'Total Sales' = sum(Fact_Table[Sales])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 683782a0-2f75-4c47-81ce-6a075748ebb1
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Average Sales' = AVERAGE(Fact_Table[Sales])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: ecbe3adc-fc9a-48de-a841-29cb11f05860
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total Transaction' = COUNTROWS(Fact_Table)
+		formatString: 0
+		lineageTag: 403e54ff-153c-4f47-a273-ca308c24cc77
+
+	measure 'No. of Items' = COUNTROWS(Dim_Items)
+		formatString: 0
+		lineageTag: fea20ed2-a32b-4811-b5ec-d71fe4fbca35
+
+	measure 'Average Rating' =
+			
+			AVERAGE ( Fact_Table[Rating] )
+		lineageTag: 0a9b5c9e-b0c0-403e-9530-e106d58a8eae
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column _Measures
+		dataType: string
+		lineageTag: f66bb95e-3141-4bbc-9fc1-70933c77d6e4
+		summarizeBy: none
+		sourceColumn: _Measures
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = ""
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

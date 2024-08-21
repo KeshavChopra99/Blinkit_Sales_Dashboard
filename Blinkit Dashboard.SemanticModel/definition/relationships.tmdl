@@ -1,0 +1,8 @@
+relationship 12eee5c8-42f7-1896-efe7-8ec7fc240541
+	fromColumn: Fact_Table.'Outlet Identifier'
+	toColumn: Dim_Outlets.'Outlet Identifier'
+
+relationship 4a105f7c-ab87-ee57-40a0-39257fe25dd6
+	fromColumn: Fact_Table.'Item Identifier'
+	toColumn: Dim_Items.'Item Identifier'
+
