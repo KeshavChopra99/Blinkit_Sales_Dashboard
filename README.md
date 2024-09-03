@@ -84,7 +84,7 @@ Project planning using AIMS Grid:
 3. Show Average Sales: <br>`select avg(sales) as average_sales from blinkit_sales;`
 4. Show Average Rating: <br>`select avg(rating) as average_rating from blinkit_sales;`
 5. Show Number of Items: <br>`select count(*) as number_of_items from blinkit_sales;`
-6. Show total sales according to outlet size:<br> `select outlet_size, round(sum(sales),2) as sales from blinkit_sales group by Outlet_Size`
+6. Show total sales according to outlet size:<br> `select outlet_size, round(sum(sales),2) as total_sales from blinkit_sales group by Outlet_Size`
 
 
 ## Data Cleaning and ETL(Extract, Transform, Load)
