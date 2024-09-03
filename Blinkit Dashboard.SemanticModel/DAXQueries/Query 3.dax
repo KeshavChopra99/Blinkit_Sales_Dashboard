@@ -1,0 +1,12 @@
+// DAX Query
+DEFINE VAR __DS0FilterTable = 
+	TREATAS({"'_Measures'[Total Sales]"}, 'Metrics'[Parameter Fields])
+
+EVALUATE
+	SUMMARIZECOLUMNS(
+		__DS0FilterTable,
+		"Average_Rating", IGNORE('_Measures'[Average Rating]),
+		"Number_of_Items", IGNORE('_Measures'[Number of Items]),
+		"Average_Sales", IGNORE('_Measures'[Average Sales]),
+		"Total_Sales", IGNORE('_Measures'[Total Sales])
+	)

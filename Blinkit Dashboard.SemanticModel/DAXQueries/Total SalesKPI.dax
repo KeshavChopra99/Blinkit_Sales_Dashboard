@@ -1,0 +1,5 @@
+EVALUATE
+	SUMMARIZE(
+		Fact_Table,
+		"Total Sales", SUM(Fact_Table[Sales])
+	)

@@ -1989,7 +1989,7 @@ cultureInfo en-IN
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Measures",
-			          "ConceptualProperty": "Total Transaction"
+			          "ConceptualProperty": "Number of Items"
 			        }
 			      },
 			      "State": "Generated",
@@ -2121,7 +2121,7 @@ cultureInfo en-IN
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Measures",
-			          "ConceptualProperty": "No. of Items"
+			          "ConceptualProperty": "Total SKUs"
 			        }
 			      },
 			      "State": "Generated",

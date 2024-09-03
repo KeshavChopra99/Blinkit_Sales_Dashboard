@@ -6,9 +6,9 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","DaxQueryView_Desktop"]
 
-annotation PBIDesktopVersion = 2.132.908.0 (24.08)
+annotation PBIDesktopVersion = 2.132.1053.0 (24.08)
 
 annotation PBI_QueryOrder = ["Raw Data","Fact_Table","Dim_Items","Dim_Outlets","_Measures"]
 

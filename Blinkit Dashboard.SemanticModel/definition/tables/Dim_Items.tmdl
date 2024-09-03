@@ -30,10 +30,10 @@ table Dim_Items
 		source =
 				let
 				    Source = #"Raw Data",
-				    #"Replaced Value" = Table.ReplaceValue(Source,"low fat","Low Fat",Replacer.ReplaceText,{"Item Fat Content"}),
-				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value","reg","Regular",Replacer.ReplaceText,{"Item Fat Content"}),
-				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value2","LF","Low Fat",Replacer.ReplaceText,{"Item Fat Content"}),
-				    #"Removed Other Columns" = Table.SelectColumns(#"Replaced Value1",{"Item Identifier", "Item Fat Content", "Item Type"}),
+				    #"Replaced low fat with Low Fat" = Table.ReplaceValue(Source,"low fat","Low Fat",Replacer.ReplaceText,{"Item Fat Content"}),
+				    #"Replaced reg with Regular" = Table.ReplaceValue(#"Replaced low fat with Low Fat","reg","Regular",Replacer.ReplaceText,{"Item Fat Content"}),
+				    #"Replaced LF with Low Fat" = Table.ReplaceValue(#"Replaced reg with Regular","LF","Low Fat",Replacer.ReplaceText,{"Item Fat Content"}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Replaced LF with Low Fat",{"Item Identifier", "Item Fat Content", "Item Type"}),
 				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns")
 				in
 				    #"Removed Duplicates"

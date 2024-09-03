@@ -48,7 +48,7 @@ table Metrics
 				{
 				    ("Total Sales", NAMEOF('_Measures'[Total Sales]), 0),
 				    ("Average Sales", NAMEOF('_Measures'[Average Sales]), 1),
-				    ("Total Transaction", NAMEOF('_Measures'[Total Transaction]), 2),
+				    ("Total Transaction", NAMEOF('_Measures'[Number of Items]), 2),
 				    ("Average Rating", NAMEOF('_Measures'[Average Rating]), 3)
 				}
 

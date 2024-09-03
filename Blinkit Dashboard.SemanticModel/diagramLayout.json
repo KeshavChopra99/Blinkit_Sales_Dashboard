@@ -4,16 +4,17 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 127,
+        "x": 504,
         "y": 0
       },
       "nodes": [
         {
           "location": {
-            "x": 277,
-            "y": 188
+            "x": 289,
+            "y": 129
           },
           "nodeIndex": "Fact_Table",
+          "nodeLineageTag": "0aeedc6f-120a-409a-a002-656a861c299a",
           "size": {
             "height": 268,
             "width": 234
@@ -46,8 +47,8 @@
         },
         {
           "location": {
-            "x": 827,
-            "y": 176
+            "x": 1204,
+            "y": 162
           },
           "nodeIndex": "_Measures",
           "nodeLineageTag": "7489b812-c8c2-4cbe-8de1-d9df32620f28",
@@ -59,10 +60,11 @@
         },
         {
           "location": {
-            "x": 1111,
-            "y": 152
+            "x": 1193,
+            "y": 0
           },
           "nodeIndex": "Metrics",
+          "nodeLineageTag": "fc0e58ea-b53e-4724-abbe-a405b5e8ee88",
           "size": {
             "height": 152,
             "width": 234
