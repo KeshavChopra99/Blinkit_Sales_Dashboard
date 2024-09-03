@@ -260,6 +260,16 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
+			          "transaction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
 			          "deal": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -1995,124 +2005,58 @@ cultureInfo en-IN
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "total transaction": {
+			          "number of items": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "transaction": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "aggregate transaction": {
+			          "quantity of item": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.582
+			            "Weight": 0.769
 			          }
 			        },
 			        {
-			          "overall transaction": {
+			          "amount of item": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.582
+			            "Weight": 0.746
 			          }
 			        },
 			        {
-			          "total operation": {
+			          "count of item": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.5
+			            "Weight": 0.746
 			          }
 			        },
 			        {
-			          "operation": {
+			          "number of item": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.491
+			            "Weight": 0.746
 			          }
 			        },
 			        {
-			          "total deal": {
+			          "no of item": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.485
-			          }
-			        },
-			        {
-			          "total business": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.485
-			          }
-			        },
-			        {
-			          "total contract": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.485
-			          }
-			        },
-			        {
-			          "total matter": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.485
-			          }
-			        },
-			        {
-			          "deal": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "business": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "TOTAL TRANSACTIONS": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
+			            "Weight": 0.739
 			          }
 			        }
 			      ]
@@ -2127,18 +2071,34 @@ cultureInfo en-IN
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "no. of items": {
+			          "total SKUs": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "number . of item": {
+			          "SKUs": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "aggregate SKU": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.599
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "overall SKU": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
 			          }
 			        }
 			      ]
@@ -2538,6 +2498,39 @@ cultureInfo en-IN
 			    }
 			  },
 			  "Relationships": {
+			    "fact_table_has_v_Measures_measure_total_transaction": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Table"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_table": {
+			          "Target": {
+			            "Entity": "fact_table"
+			          }
+			        },
+			        "v_Measures_measure.total_transaction": {
+			          "Target": {
+			            "Entity": "v_Measures_measure.total_transaction"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_table"
+			            },
+			            "Object": {
+			              "Role": "v_Measures_measure.total_transaction"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_tables_have_number_of_items"
+			        }
+			      ]
+			    },
 			    "fact_table_has_v_Measures_measure_average_sales": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact_Table"
@@ -3190,39 +3183,6 @@ cultureInfo en-IN
 			        }
 			      ]
 			    },
-			    "fact_table_has_v_Measures_measure_total_transaction": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact_Table"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_table": {
-			          "Target": {
-			            "Entity": "fact_table"
-			          }
-			        },
-			        "v_Measures_measure.total_transaction": {
-			          "Target": {
-			            "Entity": "v_Measures_measure.total_transaction"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_table"
-			            },
-			            "Object": {
-			              "Role": "v_Measures_measure.total_transaction"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_tables_have_total_transaction"
-			        }
-			      ]
-			    },
 			    "dim_item_has_v_Measures_measure_no__of_items": {
 			      "Binding": {
 			        "ConceptualEntity": "Dim_Items"
@@ -3252,7 +3212,7 @@ cultureInfo en-IN
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_items_have_no__of_items"
+			          "ID": "dim_items_have_total_SKUs"
 			        }
 			      ]
 			    },

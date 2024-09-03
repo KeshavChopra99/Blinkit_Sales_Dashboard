@@ -17,13 +17,10 @@ A comprehensive analysis of Blinkit's sales performance, customer satisfaction, 
 - [Data Analysis using DAX](#data-analysis-using-dax)
 - [Dashboard](#dashboard)
 - [Tools, Software and Libraries](#tools-software-and-libraries)
-- [Maintainers](#maintainers)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Background
 
-This project aims to provide a comprehensive analysis of Blinkit's sales performance, customer satisfaction, and inventory distribution to identify key insights and opportunities for optimization.
+This project aims to comprehensively analyze Blinkit's sales performance, customer satisfaction, and inventory distribution to identify key insights and opportunities for optimization.
 
 ## Business Requirement
 
@@ -43,7 +40,7 @@ To conduct a comprehensive analysis of Blinkit's sales performance, customer sat
 	* Additional KPI Metrics: Assess how other KPIs (Average Sales, Number of Items, Average Rating) vary with fat content.
 	* Chart Type: Donut Chart.
 2. Total Sales by Item Type:
-	* Objective: Identify the performance of different item types in terms of total sales.
+	* Objective: Identify the performance of different item types regarding total sales.
 	* Additional KPI Metrics: Assess how other KPIs (Average Sales, Number of Items, Average Rating) vary with fat content.
 	* Chart Type: Bar Chart.
 3. Fat Content by Outlet for Total Sales:
@@ -67,38 +64,38 @@ To conduct a comprehensive analysis of Blinkit's sales performance, customer sat
 
 Project planning using AIMS Grid:
 
-1. Purpose: To unlock sales insights that are not visible before for the sales team for decision support and automate them to reduced manual time spent in data gathering.
+1. Purpose: To unlock sales insights that were not visible before for the sales team for decision support and automate them to reduce manual time spent in data gathering.
 2. Stakeholders:
 	* Sales Director
 	* Marketing Team
 	* Customer Service Team
 	* Data and Analytics Team
 	* IT
-3. End result: An automated dashboard providing quick and latest sights in order to support Data driven decision making.
+3. result: An automated dashboard providing quick and latest sights to support Data-driven decision-making.
 4. Success Criteria:
-	* Dashboard uncovering sales order insights with latest data available
-	* Sales Team able to take better data-driven decisions.
-	* Sales Analysts stop data gathering manually in order to save business time.
+	* Dashboard uncovering sales order insights with the latest data available
+	* The sales team can make better data-driven decisions.
+	* Sales Analysts stop data gathering manually to save business time.
 
 ## Data Analysis using MySQL
 
-1. Show all sales record: `select * from blinkit_sales;`
-2. Show Total Sales: `select sum(sales) as total_sales from blinkit_sales;`
-3. Show Average Sales: `select avg(sales) as average_sales from blinkit_sales;`
-4. Show Average Rating: `select avg(rating) as average_rating from blinkit_sales;`
-5. Show Number of Items: `select count(*) as number_of_items from blinkit_sales;`
-6. Show total sales according to outlet size: `select outlet_size, round(sum(sales),2) as sales from blinkit_sales group by Outlet_Size`
+1. Show all sales records: <br>`select * from blinkit_sales;`
+2. Show Total Sales: <br> `select sum(sales) as total_sales from blinkit_sales;`
+3. Show Average Sales: <br>`select avg(sales) as average_sales from blinkit_sales;`
+4. Show Average Rating: <br>`select avg(rating) as average_rating from blinkit_sales;`
+5. Show Number of Items: <br>`select count(*) as number_of_items from blinkit_sales;`
+6. Show total sales according to outlet size:<br> `select outlet_size, round(sum(sales),2) as sales from blinkit_sales group by Outlet_Size`
 
 
 ## Data Cleaning and ETL(Extract, Transform, Load)
 
-Our data is initially extracted from the csv file into Power BI, and then the subsequent Extract, Transform, and Load (ETL) is executed in Power Query:
+Our data is initially extracted from the CSV file into Power BI, and then the subsequent Extract, Transform, and Load (ETL) is executed in Power Query:
 
 ### 1. Referencing Raw Data
-Create three new queries namely Fact_Table, Dim_Items, Dim_Outlets.
+Create three new queries namely Fact_Table, Dim_Items, and Dim_Outlets.
 
 ### 2. Removed unwanted columns
-Removed unwanted columns in Fact_Table, following columns were removed:
+Removed unwanted columns in Fact_Table, The following columns were removed:
 
 * Item Fat Content
 * Item Type
@@ -107,7 +104,7 @@ Removed unwanted columns in Fact_Table, following columns were removed:
 * Outlet Type
 
 ### 3. Removed unwanted columns from Dim_Outlets
-Removed unwanted columns from Dim_Outlets using remove other columns feature. Resulted Table Include following columns:
+Removed unwanted columns from Dim_Outlets using the remove other columns feature. Resulted Table Includes the following columns:
 
 * Outlet Identifier
 * Outlet Establishment Year
@@ -120,16 +117,18 @@ Replaced inconsistent values in Dim_Items Table, Item Fat Content Column:
 * Replaced reg with Regular
 
 ### 5. Removed unwanted columns from Dim_Outlets
-Removed unwanted columns from Dim_Outlets using remove other columns feature. Resulted Table Include following columns:
+Removed unwanted columns from Dim_Outlets using the remove other columns feature. Resulted Table Includes the following columns:
 * Item Identifier
 * Item Fat Content
 * Item Type
 
-This concluded ETL process, after that we did model data into star schema in next step.
+This concluded the ETL process, and after that, we modeled data into star schema in the next step.
 
 ## Data Modeling
-To improve measure performance and reduce visual query time star schema is build from flat file.
-With relationships as follow:
+To improve measure performance and reduce visual query time star schema is built from a flat file.
+With relationships as follows:
+
+![](Assets/Data_Modeling.png)
 
 ## Data Analysis using DAX
 Some of the measures done using DAX are:
@@ -142,6 +141,8 @@ Some of the measures done using DAX are:
 
 
 ## Dashboard
+
+![](https://github.com/KeshavChopra99/Blinkit_Sales_Dashboard/blob/main/Assets/Dashboard.png)
 
 ## Tools, Software and Libraries
 ### 1. MySQL
